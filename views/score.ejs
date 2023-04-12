@@ -1,0 +1,162 @@
+<%- include ("partiejs/header.ejs")%>
+
+  <div class="container">            
+   <%data.forEach(function(dato) {%>
+     <div class="container-inner">
+    <div class="sticky-container">
+      <div class="sticky-outer">
+        <div class="sticky">
+          <svg width="0" height="0">
+            <defs>
+              <clipPath id="stickyClip" clipPathUnits="objectBoundingBox">
+                <path
+                      d="M 0 0 Q 0 0.69, 0.03 0.96 0.03 0.96, 1 0.96 Q 0.96 0.69, 0.96 0 0.96 0, 0 0"
+                      stroke-linejoin="round"
+                      stroke-linecap="square"
+                      />  
+              </clipPath>
+            </defs>
+          </svg>
+          <div class="sticky-content">
+              <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Nickname</th>
+      <th scope="col">Età</th>
+    </tr>
+  </thead>
+             <tbody>
+          <tr>
+            <th scope="row" ><%=dato.Nome%></th>
+            <td scope="row"><%=dato.Nickname%></td>
+            <td scope="row"><%=dato.Punti%></td><br>
+          </tr>
+               </div>
+        </div>
+      </div>
+    </div>
+  </div>
+            
+  </tbody>
+              
+            
+</div>
+   <%})%>       
+  
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+/* Some positioning and ratios */
+.sticky-container {
+  max-width: 270px;
+  position: relative;
+}
+
+.sticky-outer {
+  display: flex;
+  padding-top: 92.5925926%;
+  position: relative;
+
+  width: 100%;
+}
+
+.sticky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Shadow behind the sticky note */
+.sticky:before {
+  box-shadow: -2px 2px 15px 0 rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.25);
+  content: '';
+  width: 90%;
+  left: 5px;
+  height: 75%;
+  position: absolute;
+  top: 30%;
+}
+
+/* The sticky note itself */
+.sticky-content {
+  background: linear-gradient(
+    180deg,
+    rgba(187, 235, 255, 1) 0%,
+    rgba(187, 235, 255, 1) 12%,
+    rgba(170, 220, 241, 1) 75%,
+    rgba(195, 229, 244, 1) 100%
+  );
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+
+  font-family: 'Kalam', cursive;
+  font-size: 1.25rem;
+
+  clip-path: url(#stickyClip);
+}
+
+
+/* Position the sticky nicely, so it looks better */
+html,
+body {
+  height: 100%;
+  margin: 5px;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.container-inner {
+  width: 50%;
+  margin: 25px;
+}
+
+/* Add responsiveness */
+@media screen and (min-width: 640px) {
+  .sticky-content {
+    font-size: 1.5rem;
+  }
+  .container-inner {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sticky-content {
+    font-size: 1.5rem;
+  }
+  .container-inner {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .sticky-content {
+    font-size: 1.875rem;
+  }
+  .container-inner {
+    width: 25%;
+  }
+}
+</style>   
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ 
+
+
+
+
+
+
+
+
+<%- include ("partiejs/footer")%>  
